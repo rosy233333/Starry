@@ -1,3 +1,9 @@
 [submodule "testcases"]
 	path = testcases
 	url = https://github.com/Starry-OS/testcases.git
+
+[submodule "arch_boot"]
+	path = crates/arch_boot
+
+[submodule "axruntime"]
+	path = crates/axruntime
