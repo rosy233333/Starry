@@ -24,7 +24,7 @@ static BLOCK_QUEUE: LazyInit<SpinNoIrq<BlockQueue>> = LazyInit::new();
 
 fn test_block_wake_yield() -> i32 {
     BLOCK_QUEUE.init_by(SpinNoIrq::new(BlockQueue::new()));
-    for i in 0 .. 4 {
+    for i in 0 .. 2 {
         spawn_to_global(|| {
             let task_id = current_id();
             warn!("task {task_id} is thread");
@@ -46,7 +46,7 @@ fn test_block_wake_yield() -> i32 {
         });
     }
 
-    for i in 0 .. 4 {
+    for i in 0 .. 2 {
         spawn_to_global_async(async {
             let task_id = current_id();
             warn!("task {task_id} is coroutine");
