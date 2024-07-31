@@ -4,6 +4,8 @@
 
 [submodule "arch_boot"]
 	path = crates/arch_boot
+	url = https://github.com/rosy233333/arch_boot.git
 
 [submodule "axruntime"]
 	path = crates/axruntime
+	url = https://github.com/rosy233333/axruntime.git
