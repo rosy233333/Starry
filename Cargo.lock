@@ -201,10 +201,10 @@ dependencies = [
  "of",
  "raw-cpuid 11.0.2",
  "riscv 0.10.1",
- "sbi-rt",
+ "sbi-rt 0.0.2",
  "tock-registers",
  "x86",
- "x86_64",
+ "x86_64 0.14.12",
 ]
 
 [[package]]
@@ -370,6 +370,7 @@ dependencies = [
 [[package]]
 name = "axhal"
 version = "0.1.0"
+source = "git+https://github.com/Starry-OS/axhal.git#769caa8b8749b324a1370a8da11c0e6a7597eedf"
 dependencies = [
  "aarch64-cpu",
  "arm_gic",
@@ -394,15 +395,15 @@ dependencies = [
  "percpu 0.1.0 (git+https://github.com/Starry-OS/percpu)",
  "ratio",
  "raw-cpuid 11.0.2",
- "riscv 0.10.1",
- "sbi-rt",
+ "riscv 0.11.1",
+ "sbi-rt 0.0.3",
  "spinlock 0.1.0 (git+https://github.com/Starry-OS/spinlock.git)",
  "static_assertions",
  "taskctx",
  "tock-registers",
  "x2apic",
  "x86",
- "x86_64",
+ "x86_64 0.15.1",
 ]
 
 [[package]]
@@ -571,6 +572,7 @@ dependencies = [
 [[package]]
 name = "axtask"
 version = "0.1.0"
+source = "git+https://github.com/Starry-OS/axtask.git#4ae6b15a574b5351ac3843d6ef97843164298341"
 dependencies = [
  "axconfig",
  "axhal",
@@ -609,7 +611,7 @@ dependencies = [
  "riscv 0.10.1",
  "tock-registers",
  "x86",
- "x86_64",
+ "x86_64 0.14.12",
 ]
 
 [[package]]
@@ -1262,7 +1264,7 @@ dependencies = [
  "aarch64-cpu",
  "bitflags 2.6.0",
  "memory_addr",
- "x86_64",
+ "x86_64 0.14.12",
 ]
 
 [[package]]
@@ -1492,7 +1494,16 @@ version = "0.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8c113c53291db8ac141e01f43224ed488b8d6001ab66737b82e04695a43a42b7"
 dependencies = [
- "sbi-spec",
+ "sbi-spec 0.0.4",
+]
+
+[[package]]
+name = "sbi-rt"
+version = "0.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7fbaa69be1eedc61c426e6d489b2260482e928b465360576900d52d496a58bd0"
+dependencies = [
+ "sbi-spec 0.0.7",
 ]
 
 [[package]]
@@ -1503,6 +1514,12 @@ checksum = "6d4027cf9bb591a9fd0fc0e283be6165c5abe96cb73e9f0e24738c227f425377"
 dependencies = [
  "static_assertions",
 ]
+
+[[package]]
+name = "sbi-spec"
+version = "0.0.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e6e36312fb5ddc10d08ecdc65187402baba4ac34585cb9d1b78522ae2358d890"
 
 [[package]]
 name = "scheduler"
@@ -1879,7 +1896,7 @@ dependencies = [
  "bitflags 1.3.2",
  "paste",
  "raw-cpuid 10.7.0",
- "x86_64",
+ "x86_64 0.14.12",
 ]
 
 [[package]]
@@ -1898,6 +1915,18 @@ name = "x86_64"
 version = "0.14.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "96cb6fd45bfeab6a5055c5bffdb08768bd0c069f1d946debe585bbb380a7c062"
+dependencies = [
+ "bit_field",
+ "bitflags 2.6.0",
+ "rustversion",
+ "volatile",
+]
+
+[[package]]
+name = "x86_64"
+version = "0.15.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4bc79523af8abf92fb1a970c3e086c5a343f6bcc1a0eb890f575cbb3b45743df"
 dependencies = [
  "bit_field",
  "bitflags 2.6.0",
