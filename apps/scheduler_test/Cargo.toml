@@ -6,8 +6,7 @@ edition = "2021"
 [dependencies]
 axstd = { git = "https://github.com/Starry-OS/axstd.git", features = ["alloc"] }
 
-# task_management = { path = "../../../project2210132-233191/code/task_management", default-features = false, features = [] }
-task_management = { path = "../../../project2210132-233191/code/task_management", default-features = false, features = ["smp"] }
-spinlock = { path = "../../../project2210132-233191/code/dependencies/spinlock" }
+task_management = { path = "../../../code/task_management", default-features = false, features = ["smp"] }
+spinlock = { path = "../../../code/dependencies/spinlock" }
 lazy_init = { git = "https://github.com/Starry-OS/lazy_init.git" }
 axlog = { git = "https://github.com/Starry-OS/axlog.git" }
