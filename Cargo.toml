@@ -1,4 +1,14 @@
-[patch]
+[patch."https://github.com/Starry-OS/arch_boot.git".arch_boot]
+path = "crates/arch_boot"
+
+[patch."https://github.com/Starry-OS/axhal.git".axhal]
+path = "crates/axhal"
+
+[patch."https://github.com/Starry-OS/axruntime.git".axruntime]
+path = "crates/axruntime"
+
+[patch."https://github.com/Starry-OS/axtask.git".axtask]
+path = "crates/axtask"
 
 [profile.dev]
 lto = true
@@ -7,5 +17,5 @@ lto = true
 lto = true
 
 [workspace]
-members = ["apps/display", "apps/exception", "apps/helloworld", "apps/memtest", "apps/fs/shell", "apps/net/echoserver", "apps/net/httpclient", "apps/net/httpserver", "apps/net/udpserver", "apps/net/bwbench", "apps/task/parallel", "apps/task/sleep", "apps/task/yield", "apps/task/priority", "apps/task/tls", "apps/monolithic_userboot", "tools/axlibc"]
+members = ["apps/display", "apps/exception", "apps/helloworld", "apps/memtest", "apps/fs/shell", "apps/net/echoserver", "apps/net/httpclient", "apps/net/httpserver", "apps/net/udpserver", "apps/net/bwbench", "apps/task/parallel", "apps/task/sleep", "apps/task/yield", "apps/task/priority", "apps/task/tls", "apps/monolithic_userboot", "tools/axlibc", "apps/scheduler_test"]
 resolver = "2"

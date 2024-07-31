@@ -188,7 +188,6 @@ dependencies = [
 [[package]]
 name = "arch_boot"
 version = "0.1.0"
-source = "git+https://github.com/Starry-OS/arch_boot.git#e6c5ebc7b86222df161ef81c3fd49272b1b3bac1"
 dependencies = [
  "aarch64-cpu",
  "axconfig",
@@ -201,7 +200,7 @@ dependencies = [
  "log",
  "of",
  "raw-cpuid 11.0.2",
- "riscv",
+ "riscv 0.10.1",
  "sbi-rt",
  "tock-registers",
  "x86",
@@ -243,7 +242,7 @@ dependencies = [
  "cfg-if",
  "log",
  "memory_addr",
- "spinlock",
+ "spinlock 0.1.0 (git+https://github.com/Starry-OS/spinlock.git)",
 ]
 
 [[package]]
@@ -308,7 +307,7 @@ dependencies = [
  "axruntime",
  "axsync",
  "axtask",
- "spinlock",
+ "spinlock 0.1.0 (git+https://github.com/Starry-OS/spinlock.git)",
  "taskctx",
 ]
 
@@ -371,7 +370,6 @@ dependencies = [
 [[package]]
 name = "axhal"
 version = "0.1.0"
-source = "git+https://github.com/Starry-OS/axhal.git#112ee12352d3cf528089f16fbf79d8089e624d14"
 dependencies = [
  "aarch64-cpu",
  "arm_gic",
@@ -386,19 +384,19 @@ dependencies = [
  "dw_apb_uart",
  "either",
  "handler_table",
- "kernel_guard",
+ "kernel_guard 0.1.0 (git+https://github.com/Starry-OS/kernel_guard.git)",
  "lazy_init",
  "log",
  "memory_addr",
  "of",
  "page_table",
  "page_table_entry",
- "percpu",
+ "percpu 0.1.0 (git+https://github.com/Starry-OS/percpu)",
  "ratio",
  "raw-cpuid 11.0.2",
- "riscv",
+ "riscv 0.10.1",
  "sbi-rt",
- "spinlock",
+ "spinlock 0.1.0 (git+https://github.com/Starry-OS/spinlock.git)",
  "static_assertions",
  "taskctx",
  "tock-registers",
@@ -435,7 +433,7 @@ dependencies = [
  "cfg-if",
  "crate_interface",
  "log",
- "spinlock",
+ "spinlock 0.1.0 (git+https://github.com/Starry-OS/spinlock.git)",
 ]
 
 [[package]]
@@ -452,8 +450,8 @@ dependencies = [
  "elf_parser",
  "log",
  "page_table_entry",
- "riscv",
- "spinlock",
+ "riscv 0.10.1",
+ "spinlock 0.1.0 (git+https://github.com/Starry-OS/spinlock.git)",
  "xmas-elf",
 ]
 
@@ -497,15 +495,14 @@ dependencies = [
  "cfg-if",
  "elf_parser",
  "lazy_static",
- "riscv",
- "spinlock",
+ "riscv 0.10.1",
+ "spinlock 0.1.0 (git+https://github.com/Starry-OS/spinlock.git)",
  "xmas-elf",
 ]
 
 [[package]]
 name = "axruntime"
 version = "0.1.0"
-source = "git+https://github.com/Starry-OS/axruntime.git#c38b818497359a78f6cf808c13edfc019835b18a"
 dependencies = [
  "axalloc",
  "axconfig",
@@ -520,9 +517,9 @@ dependencies = [
  "axtask",
  "cfg-if",
  "crate_interface",
- "kernel_guard",
+ "kernel_guard 0.1.0 (git+https://github.com/Starry-OS/kernel_guard.git)",
  "lazy_init",
- "percpu",
+ "percpu 0.1.0 (git+https://github.com/Starry-OS/percpu)",
 ]
 
 [[package]]
@@ -557,7 +554,7 @@ dependencies = [
  "axerrno",
  "axfeat",
  "axio",
- "spinlock",
+ "spinlock 0.1.0 (git+https://github.com/Starry-OS/spinlock.git)",
 ]
 
 [[package]]
@@ -568,28 +565,27 @@ dependencies = [
  "axhal",
  "axtask",
  "cfg-if",
- "spinlock",
+ "spinlock 0.1.0 (git+https://github.com/Starry-OS/spinlock.git)",
 ]
 
 [[package]]
 name = "axtask"
 version = "0.1.0"
-source = "git+https://github.com/Starry-OS/axtask.git#58b1e4c07348ac8e67aec952f2ef12d100732dc6"
 dependencies = [
  "axconfig",
  "axhal",
  "axlog",
  "axsignal",
  "cfg-if",
- "kernel_guard",
+ "kernel_guard 0.1.0 (git+https://github.com/Starry-OS/kernel_guard.git)",
  "lazy_init",
  "linked_list",
  "log",
  "memory_addr",
  "numeric-enum-macro",
- "percpu",
- "scheduler",
- "spinlock",
+ "percpu 0.1.0 (git+https://github.com/Starry-OS/percpu)",
+ "scheduler 0.1.0 (git+https://github.com/Starry-OS/scheduler.git)",
+ "spinlock 0.1.0 (git+https://github.com/Starry-OS/spinlock.git)",
  "taskctx",
  "timer_list",
 ]
@@ -605,12 +601,12 @@ dependencies = [
  "axtask",
  "cfg-if",
  "handler_table",
- "kernel_guard",
+ "kernel_guard 0.1.0 (git+https://github.com/Starry-OS/kernel_guard.git)",
  "lazy_init",
  "linux_syscall_api",
  "log",
- "percpu",
- "riscv",
+ "percpu 0.1.0 (git+https://github.com/Starry-OS/percpu)",
+ "riscv 0.10.1",
  "tock-registers",
  "x86",
  "x86_64",
@@ -753,6 +749,41 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7059fff8937831a9ae6f0fe4d658ffabf58f2ca96aa9dec1c889f936f705f216"
 
 [[package]]
+name = "crossbeam"
+version = "0.8.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1137cd7e7fc0fb5d3c5a8678be38ec56e819125d8d7907411fe24ccb943faca8"
+dependencies = [
+ "crossbeam-epoch",
+ "crossbeam-queue",
+ "crossbeam-utils",
+]
+
+[[package]]
+name = "crossbeam-epoch"
+version = "0.9.18"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5b82ac4a3c2ca9c3460964f020e1402edd5753411d7737aa39c3714ad1b5420e"
+dependencies = [
+ "crossbeam-utils",
+]
+
+[[package]]
+name = "crossbeam-queue"
+version = "0.3.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "df0346b5d5e76ac2fe4e327c5fd1118d6be7c51dfb18f9b7922923f287471e35"
+dependencies = [
+ "crossbeam-utils",
+]
+
+[[package]]
+name = "crossbeam-utils"
+version = "0.8.20"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "22ec99545bb0ed0ea7bb9b8e1e9122ea386ff8a48c0922e43f36d45ab09e0e80"
+
+[[package]]
 name = "defmt"
 version = "0.3.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -889,6 +920,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "embedded-hal"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "361a90feb7004eca4019fb28352a9465666b24f840f5c3cddf0ff13920590b89"
+
+[[package]]
 name = "equivalent"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -994,6 +1031,13 @@ dependencies = [
 [[package]]
 name = "kernel_guard"
 version = "0.1.0"
+dependencies = [
+ "cfg-if",
+]
+
+[[package]]
+name = "kernel_guard"
+version = "0.1.0"
 source = "git+https://github.com/Starry-OS/kernel_guard.git#72e006721a017db12ce7731fe30f56a83f330216"
 dependencies = [
  "cfg-if",
@@ -1071,7 +1115,7 @@ dependencies = [
  "num_enum",
  "numeric-enum-macro",
  "rand",
- "spinlock",
+ "spinlock 0.1.0 (git+https://github.com/Starry-OS/spinlock.git)",
 ]
 
 [[package]]
@@ -1236,10 +1280,20 @@ checksum = "19b17cddbe7ec3f8bc800887bab5e717348c95ea2ca0b1bf0837fb964dc67099"
 [[package]]
 name = "percpu"
 version = "0.1.0"
-source = "git+https://github.com/Starry-OS/percpu.git#85e6d8a74f19ac54004e64d42cda07d14042e3ee"
 dependencies = [
  "cfg-if",
- "kernel_guard",
+ "percpu_macros",
+ "spin",
+ "x86",
+]
+
+[[package]]
+name = "percpu"
+version = "0.1.0"
+source = "git+https://github.com/Starry-OS/percpu#85e6d8a74f19ac54004e64d42cda07d14042e3ee"
+dependencies = [
+ "cfg-if",
+ "kernel_guard 0.1.0 (git+https://github.com/Starry-OS/kernel_guard.git)",
  "percpu_macros",
  "spin",
  "x86",
@@ -1382,7 +1436,17 @@ checksum = "aa3145d2fae3778b1e31ec2e827b228bdc6abd9b74bb5705ba46dcb82069bc4f"
 dependencies = [
  "bit_field",
  "critical-section",
- "embedded-hal",
+ "embedded-hal 0.2.7",
+]
+
+[[package]]
+name = "riscv"
+version = "0.11.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2f5c1b8bf41ea746266cdee443d1d1e9125c86ce1447e1a2615abd34330d33a9"
+dependencies = [
+ "critical-section",
+ "embedded-hal 1.0.0",
 ]
 
 [[package]]
@@ -1443,9 +1507,27 @@ dependencies = [
 [[package]]
 name = "scheduler"
 version = "0.1.0"
+dependencies = [
+ "linked_list",
+]
+
+[[package]]
+name = "scheduler"
+version = "0.1.0"
 source = "git+https://github.com/Starry-OS/scheduler.git#036a029933b2cf4c030ef7ce10a11a786c53cd42"
 dependencies = [
  "linked_list",
+]
+
+[[package]]
+name = "scheduler_test"
+version = "0.1.0"
+dependencies = [
+ "axlog",
+ "axstd",
+ "lazy_init",
+ "spinlock 0.1.0",
+ "task_management",
 ]
 
 [[package]]
@@ -1506,10 +1588,18 @@ dependencies = [
 [[package]]
 name = "spinlock"
 version = "0.1.0"
+dependencies = [
+ "cfg-if",
+ "kernel_guard 0.1.0",
+]
+
+[[package]]
+name = "spinlock"
+version = "0.1.0"
 source = "git+https://github.com/Starry-OS/spinlock.git#0149e52d3e4f21ea7bf9bb85f6fe7fc3702d4f1f"
 dependencies = [
  "cfg-if",
- "kernel_guard",
+ "kernel_guard 0.1.0 (git+https://github.com/Starry-OS/kernel_guard.git)",
 ]
 
 [[package]]
@@ -1560,9 +1650,31 @@ dependencies = [
 ]
 
 [[package]]
+name = "task_management"
+version = "0.1.0"
+dependencies = [
+ "axlog",
+ "crossbeam",
+ "kernel_guard 0.1.0",
+ "lazy_init",
+ "percpu 0.1.0",
+ "riscv 0.11.1",
+ "spinlock 0.1.0",
+ "task_queues",
+]
+
+[[package]]
+name = "task_queues"
+version = "0.1.0"
+dependencies = [
+ "cfg-if",
+ "scheduler 0.1.0",
+]
+
+[[package]]
 name = "taskctx"
 version = "0.1.0"
-source = "git+https://github.com/Starry-OS/taskctx.git#f8899f7ce2738c4d38ccb47e534e4013331019bc"
+source = "git+https://github.com/Starry-OS/taskctx.git#86561d9659f294328350d0235e8f5d285fd6e766"
 dependencies = [
  "aarch64-cpu",
  "cfg-if",
