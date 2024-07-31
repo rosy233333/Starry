@@ -54,11 +54,15 @@ fn test_block_wake_yield() -> i32 {
             warn!("before yield, coroutine {task_id} is running on cpu {cpu_id_1}");
     
             yield_current_to_local_async().await;
+            warn!("async task can yield with sync method!");
+            yield_current_to_local();
 
             let cpu_id_2 = current_processor_id();
             warn!("after yield, before block, coroutine {task_id} is running on cpu {cpu_id_2}");
 
             BlockQueue::block_current_async_with_locked_self(&*BLOCK_QUEUE, SpinNoIrq::lock).await;
+            warn!("async task can block with sync method!");
+            BlockQueue::block_current_with_locked_self(&*BLOCK_QUEUE, SpinNoIrq::lock);
 
             let cpu_id_3 = current_processor_id();
             warn!("after wake, coroutine {task_id} is running on cpu {cpu_id_3}");
