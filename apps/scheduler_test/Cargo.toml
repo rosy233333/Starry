@@ -7,6 +7,11 @@ edition = "2021"
 axstd = { git = "https://github.com/Starry-OS/axstd.git", features = ["alloc"] }
 
 task_management = { path = "../../../code/task_management", default-features = false, features = ["smp"] }
+trap_handler = { path = "../../../code/trap_handler", default-features = false, features = ["smp", "log", "timer"] }
 spinlock = { path = "../../../code/dependencies/spinlock" }
 lazy_init = { git = "https://github.com/Starry-OS/lazy_init.git" }
 axlog = { git = "https://github.com/Starry-OS/axlog.git" }
+
+riscv = "0.11"
+
+crate_interface = "0.1.3"
