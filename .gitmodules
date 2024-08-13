@@ -9,3 +9,11 @@
 [submodule "axruntime"]
 	path = crates/axruntime
 	url = https://github.com/rosy233333/axruntime.git
+
+[submodule "axtask"]
+	path = crates/axtask
+	url = https://github.com/rosy233333/axtask.git
+
+[submodule "axhal"]
+	path = crates/axhal
+	url = https://github.com/rosy233333/axhal.git
