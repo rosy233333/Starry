@@ -370,7 +370,6 @@ dependencies = [
 [[package]]
 name = "axhal"
 version = "0.1.0"
-source = "git+https://github.com/Starry-OS/axhal.git#769caa8b8749b324a1370a8da11c0e6a7597eedf"
 dependencies = [
  "aarch64-cpu",
  "arm_gic",
@@ -572,7 +571,6 @@ dependencies = [
 [[package]]
 name = "axtask"
 version = "0.1.0"
-source = "git+https://github.com/Starry-OS/axtask.git#4ae6b15a574b5351ac3843d6ef97843164298341"
 dependencies = [
  "axconfig",
  "axhal",
@@ -1046,6 +1044,7 @@ name = "kernel_guard"
 version = "0.1.0"
 dependencies = [
  "cfg-if",
+ "crate_interface 0.1.3",
 ]
 
 [[package]]
@@ -1295,6 +1294,7 @@ name = "percpu"
 version = "0.1.0"
 dependencies = [
  "cfg-if",
+ "kernel_guard 0.1.0",
  "percpu_macros",
  "spin",
  "x86",
@@ -1685,6 +1685,7 @@ name = "task_management"
 version = "0.1.0"
 dependencies = [
  "axlog",
+ "crate_interface 0.1.3",
  "crossbeam",
  "kernel_guard 0.1.0",
  "lazy_init",

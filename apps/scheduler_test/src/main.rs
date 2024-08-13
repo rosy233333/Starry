@@ -12,7 +12,7 @@ use axstd::println;
 
 extern crate alloc;
 use alloc::sync::Arc;
-use trap_handler::CurrentTimebaseFrequency;
+use trap_handler::{disable_irqs, enable_irqs, CurrentTimebaseFrequency};
 
 struct CurrentTimebaseFrequencyImpl;
 
@@ -20,33 +20,30 @@ struct CurrentTimebaseFrequencyImpl;
 impl CurrentTimebaseFrequency for CurrentTimebaseFrequencyImpl {
     // 获取dtb上的时基频率比较困难，因此乱填的
     fn current_timebase_frequency() -> usize {
-        1000_000
+        1_000_000_000
     }
 }
 
 #[no_mangle]
 fn main(cpu_id: usize, cpu_num: usize) {
+    disable_irqs();
+    task_management::init_main_processor(cpu_id, cpu_num);
     trap_handler::init_main_processor();
-    task_management::init_main_processor(test_block_wake_yield, cpu_id, cpu_num);
+    start_main_processor(test_preempt);
+    // start_main_processor(test_block_wake_yield);
 }
 
 #[no_mangle]
 fn main_secondary(cpu_id: usize) {
-    trap_handler::init_secondary_processor();
+    disable_irqs();
     task_management::init_secondary_processor(cpu_id);
+    trap_handler::init_secondary_processor();
+    start_secondary_processor();
 }
 
 static BLOCK_QUEUE: LazyInit<SpinNoIrq<BlockQueue>> = LazyInit::new();
 
 fn test_block_wake_yield() -> i32 {
-
-    // println!("interrupt enable status:");
-    // println!("    sstatus.sie: {}", sstatus::read().sie());
-    // println!("    sie.sext: {}", sie::read().sext());
-    // println!("    sie.ssoft: {}", sie::read().ssoft());
-    // println!("    sie.stimer: {}", sie::read().stimer());
-
-    // unsafe { asm!("ebreak"); }
 
     BLOCK_QUEUE.init_by(SpinNoIrq::new(BlockQueue::new()));
     for i in 0 .. 2 {
@@ -103,5 +100,36 @@ fn test_block_wake_yield() -> i32 {
 
     let task_id = current_id();
     warn!("main task {task_id}: task spawn complete");
+    0
+}
+
+fn test_interrupt() -> i32{
+    println!("interrupt enable status:");
+    println!("    sstatus.sie: {}", sstatus::read().sie());
+    println!("    sie.sext: {}", sie::read().sext());
+    println!("    sie.ssoft: {}", sie::read().ssoft());
+    println!("    sie.stimer: {}", sie::read().stimer());
+
+    unsafe { asm!("ebreak"); }
+    0
+}
+
+fn test_preempt() -> i32{
+    enable_irqs();
+    // main任务的初始优先级为1
+    assert!(spawn_to_local_with_priority(|| {
+        println!("Main task is preempted by sync task!");
+        assert!(change_current_priority(2).is_ok());
+        loop { }
+    }, 0).is_ok());
+    // println!("Sync task is preempted by main task!");
+    assert!(spawn_to_local_async_with_priority(async {
+        println!("Main task is preempted by async task!");
+        assert!(change_current_priority(2).is_ok());
+        loop { }
+    }, 0).is_ok());
+    // println!("Async task is preempted by main task!");
+    println!("task spawn complete!");
+    loop { }
     0
 }
