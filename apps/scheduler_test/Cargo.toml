@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 axstd = { git = "https://github.com/Starry-OS/axstd.git", features = ["alloc"] }
 
-task_management = { path = "../../../code/task_management", default-features = false, features = ["smp", "preempt", "fp_context"] }
+task_management = { path = "../../../code/task_management", default-features = false, features = ["smp", "irq", "preempt", "fp_context"] }
 trap_handler = { path = "../../../code/trap_handler", default-features = false, features = ["smp", "log", "timer", "preempt", "fp_context"] }
 spinlock = { path = "../../../code/dependencies/spinlock" }
 lazy_init = { git = "https://github.com/Starry-OS/lazy_init.git" }

@@ -29,11 +29,11 @@ fn main(cpu_id: usize, cpu_num: usize) {
     disable_irqs();
     task_management::init_main_processor(cpu_id, cpu_num);
     trap_handler::init_main_processor();
+    start_main_processor(test_block_wake_yield);
+    // start_main_processor(test_trap);
     // start_main_processor(test_preempt);
-    // start_main_processor(test_block_wake_yield);
-    // start_main_processor(test_interrupt);
     // start_main_processor(test_yield_performance);
-    start_main_processor(test_yield_performance_async);
+    // start_main_processor(test_yield_performance_async);
     // start_main_processor(test_block_performance);
     // start_main_processor(test_block_performance_async);
 }
