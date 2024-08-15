@@ -108,7 +108,7 @@ fn test_block_wake_yield() -> i32 {
     0
 }
 
-fn test_interrupt() -> i32{
+fn test_trap() -> i32{
     register_trap_handler(Trap::Exception(Exception::Breakpoint), |_stval, task_context| {
         task_context.step_sepc(); // 使保存的sepc前进一条指令
         warn!("handle breakpoint exception!");
